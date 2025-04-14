@@ -9,6 +9,7 @@
 
 1. Which PHP function is used to display text on the screen?  
    **a) echo**
+   
    b) printText  
    c) show  
    d) printString  
