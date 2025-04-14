@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $_POST['price'];
     $user_id = $_SESSION['user_id'];
 
-    // Image handling
+    
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $allowed = ['jpg', 'jpeg', 'png'];
         $file_name = $_FILES['image']['name'];
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $upload_path = "uploads/" . uniqid() . ".$ext";
             move_uploaded_file($file_tmp, $upload_path);
 
-            // Save to DB
+            
             $stmt = $pdo->prepare("INSERT INTO products (user_id, name, description, price, image_path) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$user_id, $name, $desc, $price, $upload_path]);
 
